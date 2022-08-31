@@ -1,0 +1,23 @@
+<template>
+  <button @click="fetchResults">{{ value }}</button>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'FooDa',
+  data() {
+    return {
+      value: null,
+    };
+  },
+
+  methods: {
+    async fetchResults() {
+      const response = await axios.get('mock/service');
+      this.value = response.data;
+    },
+  },
+};
+</script>
